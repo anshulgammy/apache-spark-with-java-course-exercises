@@ -15,6 +15,7 @@
         <scala.version>2.13</scala.version>
         <spark.version>3.5.5</spark.version>
         <spotless.version>2.44.3</spotless.version>
+        <version.google-java-format>1.17.0</version.google-java-format>
     </properties>
 
     <dependencies>
@@ -62,46 +63,27 @@
                 <artifactId>spotless-maven-plugin</artifactId>
                 <version>${spotless.version}</version>
                 <configuration>
-                    <!-- optional: limit format enforcement to just the files changed by this feature branch -->
-                    <ratchetFrom>origin/main</ratchetFrom>
-                    <formats>
-                        <!-- you can define as many formats as you want, each is independent -->
-                        <format>
-                            <!-- define the files to apply to -->
-                            <includes>
-                                <include>.gitattributes</include>
-                                <include>.gitignore</include>
-                            </includes>
-                            <!-- define the steps to apply to those files -->
-                            <trimTrailingWhitespace/>
-                            <endWithNewline/>
-                            <indent>
-                                <tabs>true</tabs>
-                                <spacesPerTab>4</spacesPerTab>
-                            </indent>
-                        </format>
-                    </formats>
-                    <!-- define a language-specific format -->
                     <java>
-                        <!-- no need to specify files, inferred automatically, but you can if you want -->
-
-                        <!-- apply a specific flavor of google-java-format and reflow long strings -->
                         <googleJavaFormat>
-                            <version>1.8</version>
-                            <style>AOSP</style>
-                            <reflowLongStrings>true</reflowLongStrings>
-                            <formatJavadoc>false</formatJavadoc>
+                            <version>${version.google-java-format}</version>
+                            <style>GOOGLE</style>
                         </googleJavaFormat>
-
-                        <!-- make sure every file has the following copyright header.
-                          optionally, Spotless can set copyright years by digging
-                          through git history (see "license" section below) -->
-                        <licenseHeader>
-                            <content>/* (C)$YEAR */
-                            </content>  <!-- or <file>${project.basedir}/license-header</file> -->
-                        </licenseHeader>
                     </java>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>apply</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
