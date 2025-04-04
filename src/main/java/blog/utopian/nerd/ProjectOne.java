@@ -16,7 +16,9 @@ public class ProjectOne {
 
     // Step 1: Create SparkSession.
     SparkSession sparkSession =
-        SparkSession.builder().appName("CSV-To-DB").master("local").getOrCreate();
+        SparkSession.builder().appName("CSV-To-File").master("local").getOrCreate();
+
+    // Dataset<Row> is known as Dataframe in Spark.
 
     // Step 2: Read the data from source csv.
     Dataset<Row> dataset =
@@ -44,5 +46,8 @@ public class ProjectOne {
         .mode(SaveMode.Overwrite)
         .save(
             "/Users/anshulgautam/Projects/Codebase/apache-spark-with-java-course-exercises/apache-spark-with-java-course-exercises/output");
+
+    // Step 6: Close the spark session.
+    sparkSession.close();
   }
 }

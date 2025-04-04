@@ -15,6 +15,7 @@
         <scala.version>2.13</scala.version>
         <spark.version>3.5.5</spark.version>
         <spotless.version>2.44.3</spotless.version>
+        <version.jackson-core>2.18.3</version.jackson-core>
         <version.google-java-format>1.17.0</version.google-java-format>
     </properties>
 
@@ -54,6 +55,12 @@
             </exclusions>
         </dependency>
         <!-- Spark dependencies end -->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${version.jackson-core}</version>
+        </dependency>
     </dependencies>
 
     <build>
