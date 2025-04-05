@@ -1,4 +1,4 @@
-package blog.utopian.nerd;
+package blog.utopian.nerd.programs;
 
 import static blog.utopian.nerd.util.SparkSessionUtil.getSparkSession;
 
@@ -11,7 +11,13 @@ import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 
-public class ProjectTwo {
+/**
+ * In this project, we have tried exploring how to load single line and multiline json,csv,xml
+ * files, and do some basic transformation, and then output the resulting dataframe. We have also
+ * explored on how to create custom schema, and try to find out how it differs from inferSchema
+ * which spark creates on its own.
+ */
+public class ProgramTwo {
 
   public static void main(String[] args) {
 

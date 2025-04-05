@@ -1,4 +1,4 @@
-package blog.utopian.nerd;
+package blog.utopian.nerd.programs;
 
 import static blog.utopian.nerd.util.SparkSessionUtil.getSparkSession;
 import static org.apache.spark.sql.functions.*;
@@ -9,9 +9,13 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
-public class ProjectThree {
+/**
+ * In this project, we have tried to explore union of two different datasets and output the
+ * resultant dataset into the console.
+ */
+public class ProgramThree {
 
-  private static final Logger LOGGER = LogManager.getLogger(ProjectThree.class);
+  private static final Logger LOGGER = LogManager.getLogger(ProgramThree.class);
 
   public static void main(String[] args) {
 

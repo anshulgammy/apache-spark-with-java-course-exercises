@@ -1,4 +1,4 @@
-package blog.utopian.nerd;
+package blog.utopian.nerd.programs;
 
 import static org.apache.spark.sql.functions.concat;
 import static org.apache.spark.sql.functions.lit;
@@ -10,7 +10,12 @@ import org.apache.spark.sql.SparkSession;
 
 // Note: Add '--add-exports java.base/sun.nio.ch=ALL-UNNAMED' in VM options to run these programs on
 // JDK 17 and above.
-public class ProjectOne {
+
+/**
+ * In this project, we have tried exploring how to create a spark session, read a csv file, and do
+ * some basic transformation, and then output the resulting dataframe.
+ */
+public class ProgramOne {
 
   public static void main(String[] args) {
 
